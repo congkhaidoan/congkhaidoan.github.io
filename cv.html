@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CV · Đoàn Công Khải · UI/UX Designer</title>
+<meta name="description" content="CV của Đoàn Công Khải, UI/UX Designer B2B/SaaS. Xem PDF trực tiếp hoặc tải về bản tiếng Việt và tiếng Anh.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><i></i>Đoàn Công Khải</a>
+    <ul>
+      <li><a href="index.html#du-an">Dự án</a></li>
+      <li><a href="index.html#cach-lam">Cách tôi làm</a></li>
+      <li><a href="index.html#about">Về tôi</a></li>
+      <li><a href="index.html#lien-he">Liên hệ</a></li>
+    </ul>
+    <a class="btn btn-tertiary" href="index.html">← Portfolio</a>
+  </div>
+</header>
+<main class="wrap" id="main">
+  <div class="cv-bar">
+    <div>
+      <p class="label">Curriculum Vitae</p>
+      <h2 style="margin-top:8px">CV · Đoàn Công Khải</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <div class="seg" role="group" aria-label="Chọn ngôn ngữ CV">
+        <button type="button" aria-pressed="true" data-lang="VN">Tiếng Việt</button>
+        <button type="button" aria-pressed="false" data-lang="EN">English</button>
+      </div>
+      <a class="btn btn-primary" id="dl" href="assets/cv/DoanCongKhai_CV_VN.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Tải PDF</a>
+    </div>
+  </div>
+  <figure class="cv-page"><img id="cvimg" src="assets/cv/cv-vn.webp" alt="CV Đoàn Công Khải, bản tiếng Việt" width="1241" height="1754"></figure>
+  <p class="note" style="text-align:center;margin:16px 0 48px">Ảnh xem trước của file PDF. <a id="open" href="assets/cv/DoanCongKhai_CV_VN.pdf" target="_blank" rel="noopener">Mở bản PDF gốc trong tab mới</a>.</p>
+</main>
+<footer><div class="wrap"><span>© 2026 Đoàn Công Khải</span><span>congkhaicd@gmail.com · 036 227 8640</span></div></footer>
+<script>
+document.querySelectorAll('.seg button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f='assets/cv/DoanCongKhai_CV_'+b.dataset.lang+'.pdf';
+    document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    var img=document.getElementById('cvimg');img.src='assets/cv/cv-'+b.dataset.lang.toLowerCase()+'.webp';img.alt=b.dataset.lang==='EN'?'CV Doan Cong Khai, English version':'CV Đoàn Công Khải, bản tiếng Việt';
+    ['dl','open'].forEach(function(id){document.getElementById(id).href=f});
+  });
+});
+</script>
+</body>
+</html>
